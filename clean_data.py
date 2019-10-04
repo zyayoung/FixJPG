@@ -1,13 +1,10 @@
-#%%
 from keras.layers import Conv2D, Flatten, Dense
 from keras.models import Sequential
 from keras.losses import categorical_crossentropy
 from keras.optimizers import Adam
-#%%
 from utils import *
 x_train, y_train = get_full_data((256,256))
 
-#%%
 print(x_train.shape)
 print(y_train.shape)
 
@@ -26,7 +23,6 @@ enu = enu.reshape(2,-1).T.reshape(-1)
 x_train = x_train[enu]
 y_train = y_train[enu]
 
-#%%
 model = Sequential([
     Conv2D(64, (3,3), strides=2, activation='relu', input_shape=(256,256,3)),
     Conv2D(64, (3,3), strides=2, activation='relu'),

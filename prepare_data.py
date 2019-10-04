@@ -1,9 +1,7 @@
-#%%
 import os
 from tqdm import tqdm
 from PIL import Image
 
-#%%
 def compress_image(infile, outfile='',quality=10):
     im = Image.open(infile)
     if 'A' in im.getbands():
@@ -15,7 +13,7 @@ def compress_image(infile, outfile='',quality=10):
         im = im.resize((int(w*ratio), int(h*ratio)), Image.BICUBIC)
     im.save(outfile, quality=quality)
 
-#%%
+
 if not os.path.exists("x"):
     os.mkdir("x")
 if not os.path.exists("y"):
