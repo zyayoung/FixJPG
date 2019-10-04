@@ -10,8 +10,8 @@ def get_train_data(shape, pad):
     for img in tqdm(imgs):
         xim = cv2.imread('x/'+img)
         yim = cv2.imread('y/'+img)
-        # xim = np.expand_dims(cv2.cvtColor(xim, cv2.COLOR_BGR2GRAY),-1)
-        # yim = np.expand_dims(cv2.cvtColor(yim, cv2.COLOR_BGR2GRAY),-1)
+        xim = np.expand_dims(cv2.cvtColor(xim, cv2.COLOR_BGR2GRAY),-1)
+        yim = np.expand_dims(cv2.cvtColor(yim, cv2.COLOR_BGR2GRAY),-1)
         for i in range(0, xim.shape[0] - shape[0], shape[0]-pad):
             for j in range(0, xim.shape[1] - shape[1], shape[1]-pad):
                 x.append(xim[i:i+shape[0],j:j+shape[1]])
