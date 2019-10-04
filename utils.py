@@ -17,6 +17,26 @@ def get_train_data(shape, pad):
             for j in range(0, xim.shape[1] - shape[1], shape[1]-pad*2):
                 x.append(xim[i:i+shape[0],j:j+shape[1]])
                 y.append(yim[i+pad:-pad+i+shape[0],j+pad:-pad+j+shape[1]])
+            if (xim.shape[1] - shape[1]) % shape[1]-pad*2 and xim.shape[1]>shape[1]:
+                x.append(xim[i:i+shape[0],-shape[1]:])
+                if pad:
+                    y.append(yim[i+pad:-pad+i+shape[0],-shape[1]+pad:-pad])
+                else:
+                    y.append(yim[i:i+shape[0],-shape[1]:])
+        if (xim.shape[0] - shape[0]) % shape[0]-pad*2 and xim.shape[0]>shape[0]:
+            for j in range(0, xim.shape[1] - shape[1], shape[1]-pad*2):
+                x.append(xim[-shape[0]:,j:j+shape[1]])
+                if pad:
+                    y.append(yim[-shape[0]+pad:-pad,j+pad:-pad+j+shape[1]])
+                else:
+                    y.append(yim[-shape[0]:,j:j+shape[1]])
+            if (xim.shape[1] - shape[1]) % shape[1]-pad*2 and xim.shape[1]>shape[1]:
+                x.append(xim[-shape[0]:,-shape[1]:])
+                if pad:
+                    y.append(yim[-shape[0]+pad:-pad,-shape[1]+pad:-pad])
+                else:
+                    y.append(yim[-shape[0]:,-shape[1]:])
+
     return np.array(x)/255., np.array(y)/255.
 
 def get_full_data(shape):
