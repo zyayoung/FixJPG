@@ -28,7 +28,7 @@ def residual_unit(x):
     # y = BatchNormalization()(y)
 
     out = add([x, y])
-    return out
+    return Activation('relu')(out)
 
 def resnet18sr(input_shape=(None, None, 1)):
     x = Input(input_shape)

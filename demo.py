@@ -2,9 +2,10 @@ import sys
 import cv2
 import numpy as np
 from model.resnet import resnet18sr
+from model.srcnn import srcnn
 
-model = resnet18sr()
-model.load_weights("model.h5")
+model = srcnn()
+model.load_weights("model_srcnn.h5")
 
 im = cv2.imread("test.jpg")
 # im = np.expand_dims(cv2.cvtColor(im, cv2.COLOR_BGR2GRAY),-1)
