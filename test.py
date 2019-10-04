@@ -6,8 +6,8 @@ from model.resnet import resnet18sr
 from model.srcnn import srcnn
 from tqdm import tqdm
 
-model = srcnn()
-model.load_weights("model_srcnn.h5")
+model = resnet18sr()
+model.load_weights("model_resnet18sr.h5")
 
 raw_psnr = []
 fix_psnr = []

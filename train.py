@@ -5,7 +5,7 @@ from model.srcnn import srcnn
 from utils import get_train_data, extend_sym, PSNR
 
 TRAIN_SIZE = 64
-NUM_GPU = 1
+NUM_GPU = 2
 
 x_train, y_train = get_train_data((64, 64), 0)
 x_train = extend_sym(x_train)
