@@ -1,5 +1,5 @@
 from keras.utils import multi_gpu_model
-from model.resnet import resnet18
+from model.resnet import resnet18sr
 from model.srcnn import srcnn
 
 from utils import get_train_data, extend_sym, PSNR
@@ -11,7 +11,7 @@ x_train, y_train = get_train_data((64, 64), 0)
 x_train = extend_sym(x_train)
 y_train = extend_sym(y_train)
 
-model = resnet18((64, 64, 1))
+model = resnet18sr((64, 64, 1))
 
 model_multi = model if NUM_GPU == 1 else multi_gpu_model(model, gpus=NUM_GPU)
 model_multi.compile(loss="mse", optimizer="adam", metrics=[PSNR])

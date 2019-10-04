@@ -2,10 +2,10 @@ import sys
 import cv2
 import numpy as np
 from utils import get_raw_data
-from model.resnet import resnet18
+from model.resnet import resnet18sr
 from tqdm import tqdm
 
-model = resnet18()
+model = resnet18sr()
 model.load_weights("model.h5")
 
 raw_psnr = []

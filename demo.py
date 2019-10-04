@@ -1,9 +1,9 @@
 import sys
 import cv2
 import numpy as np
-from model.resnet import resnet18
+from model.resnet import resnet18sr
 
-model = resnet18()
+model = resnet18sr()
 model.load_weights("model.h5")
 
 im = cv2.imread("test.jpg")

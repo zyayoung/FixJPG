@@ -28,9 +28,9 @@ def residual_unit(x):
     # y = BatchNormalization()(y)
 
     out = add([x, y])
-    return Activation('relu')(out)
+    return out
 
-def resnet18(input_shape=(None, None, 1)):
+def resnet18sr(input_shape=(None, None, 1)):
     x = Input(input_shape)
     y = Conv2D(64, (3,3), activation='relu', padding='same')(x)
     for _ in range(8):
